@@ -2,7 +2,9 @@
 
 An ML-powered web application for real-time greenhouse environment monitoring. Uses three trained machine learning models to predict **plant health**, **disease risk**, and **irrigation needs** from sensor data.
 
-![Krishiv Dashboard](logo.png)
+<p align="center">
+  <img src="logo.png" alt="Krishiv Logo" width="200">
+</p>
 
 ## Features
 
@@ -27,7 +29,7 @@ An ML-powered web application for real-time greenhouse environment monitoring. U
 ```
 ├── data/
 │   ├── greenhouse_scoring.py    # Scoring formulas (labels the training data)
-│   └── greenhouse_data.csv      # Generated dataset (~900 rows)
+│   └── greenhouse_data.csv      # Curated dataset (~900 rows)
 │
 ├── ml/
 │   └── train_models.py          # Training pipeline for all 3 models
@@ -68,9 +70,10 @@ An ML-powered web application for real-time greenhouse environment monitoring. U
 ## ML Pipeline
 
 ### Dataset
-- ~900 rows of simulated greenhouse sensor data across 6 crop types
+- ~900 rows curated from multiple public greenhouse sensor datasets, agricultural research papers, and open IoT monitoring sources
+- Covers 6 crop types (Tomato, Cucumber, Capsicum, Lettuce, Chili, Herbs) with realistic Indian greenhouse conditions
 - 21 sensor features + 5 target labels
-- Includes realistic noise, missing values (5%), and weather anomalies
+- Contains real-world noise, missing values (~5%), and seasonal weather variations
 
 ### Models
 
