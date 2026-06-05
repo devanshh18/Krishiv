@@ -1,0 +1,109 @@
+/* ── Krishiv — Design Tokens & Reset ─────────────────────────────── */
+
+:root {
+  /* Backgrounds — warm cream base */
+  --bg-body: #FAF8F4;
+  --bg-surface: #F5F2EC;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FDFCFA;
+  --bg-input: #F5F2EC;
+  --bg-input-focus: #FFFFFF;
+  --bg-nav: rgba(250, 248, 244, 0.88);
+
+  /* Brand Greens */
+  --green-900: #0F3D2B;
+  --green-800: #1A5C40;
+  --green-700: #1E6B4A;
+  --green-600: #22805A;
+  --green-500: #27A06E;
+  --green-400: #3DBC86;
+  --green-300: #6DD4A8;
+  --green-200: #A7E8CC;
+  --green-100: #D1F5E4;
+  --green-50: #EEFBF3;
+
+  /* Text */
+  --text-primary: #1A2E23;
+  --text-secondary: #3D5A4A;
+  --text-tertiary: #7A9485;
+  --text-inverse: #FFFFFF;
+
+  /* Semantic */
+  --color-success: #1B7A4E;
+  --color-success-light: #EEFBF3;
+  --color-warning: #B45309;
+  --color-warning-light: #FEF9EE;
+  --color-danger: #C53030;
+  --color-danger-light: #FEF2F2;
+  --color-info: #2563EB;
+  --color-info-light: #EFF6FF;
+
+  /* Borders */
+  --border-light: #E8E4DC;
+  --border-default: #D5CFBF;
+  --border-focus: var(--green-500);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 8px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.03);
+  --shadow-lg: 0 10px 20px -4px rgba(0,0,0,0.07), 0 4px 8px -4px rgba(0,0,0,0.04);
+
+  /* Spacing */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px;
+  --s-4: 16px; --s-5: 20px; --s-6: 24px;
+  --s-8: 32px; --s-10: 40px; --s-12: 48px;
+  --s-16: 64px; --s-20: 80px;
+
+  /* Radius */
+  --r-sm: 6px; --r-md: 8px; --r-lg: 12px;
+  --r-xl: 16px; --r-2xl: 20px; --r-full: 9999px;
+
+  /* Typography */
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ts-xs: 0.8rem;
+  --ts-sm: 0.875rem;
+  --ts-base: 0.9375rem;
+  --ts-md: 1rem;
+  --ts-lg: 1.125rem;
+  --ts-xl: 1.3rem;
+  --ts-2xl: 1.625rem;
+  --ts-3xl: 2rem;
+  --ts-4xl: 2.5rem;
+  --ts-5xl: 3.25rem;
+
+  /* Layout */
+  --nav-h: 64px;
+  --max-w: 1200px;
+  --transition: 200ms ease;
+}
+
+/* ── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg-body);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+input, select, textarea { font-family: inherit; outline: none; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--green-100); color: var(--green-900); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb { background: var(--green-200); border-radius: var(--r-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--green-300); }
