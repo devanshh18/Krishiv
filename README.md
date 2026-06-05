@@ -22,6 +22,7 @@ Instead of checking dozens of sensor readings manually, farmers and agronomists 
 - **Live Dashboard** — Auto-refreshing dashboard with real-time sensor data, trend charts, and alerts
 - **IoT Simulator** — Built-in sensor simulator that generates realistic readings every 60 seconds
 - **Rule-Based Alerts** — Smart alerts and actionable recommendations based on sensor thresholds
+- **Dockerized Deployment** — Fully containerized with Docker Compose (database, backend, frontend in one command)
 
 ## Tech Stack
 
@@ -30,49 +31,55 @@ Instead of checking dozens of sensor readings manually, farmers and agronomists 
 | **ML Models** | scikit-learn (GradientBoosting) |
 | **Backend** | FastAPI, SQLAlchemy, PostgreSQL |
 | **Frontend** | React, Vite, ApexCharts |
+| **DevOps** | Docker, Docker Compose |
 | **Data** | pandas, NumPy |
 
 ## Project Structure
 
 ```
+├── docker-compose.yml              # Orchestrates all 3 containers
+├── .dockerignore                   # Files excluded from Docker builds
+├── requirements.txt                # Python dependencies (pinned versions)
+│
 ├── data/
-│   ├── greenhouse_scoring.py    # Scoring formulas (labels the training data)
-│   └── greenhouse_data.csv      # Curated dataset (~900 rows)
+│   ├── greenhouse_scoring.py       # Scoring formulas (labels the training data)
+│   └── greenhouse_data.csv         # Curated dataset (~900 rows)
 │
 ├── ml/
-│   └── train_models.py          # Training pipeline for all 3 models
+│   └── train_models.py             # Training pipeline for all 3 models
 │
 ├── models/
-│   ├── health_model.pkl          # Trained health score model
-│   ├── disease_model.pkl         # Trained disease risk model
-│   ├── irrigation_model.pkl      # Trained irrigation classifier
-│   └── preprocessor.pkl          # Feature engineering metadata
+│   ├── health_model.pkl            # Trained health score model
+│   ├── disease_model.pkl           # Trained disease risk model
+│   ├── irrigation_model.pkl        # Trained irrigation classifier
+│   └── preprocessor.pkl            # Feature engineering metadata
 │
 ├── backend/
-│   ├── .env.example              # Environment variables template
+│   ├── Dockerfile                  # Backend container definition
+│   ├── .env.example                # Environment variables template
 │   └── app/
-│       ├── main.py               # FastAPI app entry point
-│       ├── config.py             # Settings (reads .env)
-│       ├── database.py           # PostgreSQL connection
-│       ├── simulator.py          # IoT sensor simulator
+│       ├── main.py                 # FastAPI app entry point
+│       ├── config.py               # Settings (reads .env)
+│       ├── database.py             # PostgreSQL connection
+│       ├── simulator.py            # IoT sensor simulator
 │       ├── ml/
-│       │   ├── engine.py         # Loads models, runs predictions
-│       │   └── feature_eng.py    # Feature engineering for inference
+│       │   ├── engine.py           # Loads models, runs predictions
+│       │   └── feature_eng.py      # Feature engineering for inference
 │       ├── models/
-│       │   └── reading.py        # Database table definition (ORM)
-│       ├── routers/              # API route handlers
+│       │   └── reading.py          # Database table definition (ORM)
+│       ├── routers/                # API route handlers
 │       ├── rules/
 │       │   └── recommendations.py  # Alert & recommendation logic
-│       └── schemas/              # Request/response validation
+│       └── schemas/                # Request/response validation
 │
 ├── frontend/
+│   ├── Dockerfile                  # Frontend container definition
+│   ├── .dockerignore               # Files excluded from frontend build
 │   └── src/
-│       ├── App.jsx               # Root component + routing
-│       ├── api/client.js         # API client (Axios)
-│       ├── pages/                # Dashboard, Disease, Irrigation, About
-│       └── components/           # Navbar, ScoreGauge, etc.
-│
-└── requirements.txt
+│       ├── App.jsx                 # Root component + routing
+│       ├── api/client.js           # API client (Axios)
+│       ├── pages/                  # Dashboard, Disease, Irrigation, About
+│       └── components/             # Navbar, ScoreGauge, etc.
 ```
 
 ## ML Pipeline
