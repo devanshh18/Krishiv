@@ -1,10 +1,18 @@
 # 🌿 Krishiv — Greenhouse Intelligence System
 
-An ML-powered web application for real-time greenhouse environment monitoring. Uses three trained machine learning models to predict **plant health**, **disease risk**, and **irrigation needs** from sensor data.
+![Krishiv Banner](logo.png)
 
-<p align="center">
-  <img src="logo.png" alt="Krishiv Logo" width="200">
-</p>
+## About the Project
+
+Greenhouse farming is growing rapidly in India, but most farmers still rely on manual observation and guesswork to manage their crops. Problems like overwatering, undetected disease outbreaks, and poor environmental control lead to significant crop losses every season.
+
+**Krishiv** solves this by bringing machine learning into the greenhouse. It continuously monitors sensor data — temperature, humidity, soil moisture, nutrients, and more — and uses three trained ML models to provide:
+
+- **Health Score (0–100)** — Is the greenhouse environment good for the crops right now?
+- **Disease Risk (0–100)** — Are conditions favorable for fungal or bacterial infections?
+- **Irrigation Need (Low / Medium / High)** — Does the soil need watering?
+
+Instead of checking dozens of sensor readings manually, farmers and agronomists get a single dashboard with clear scores, alerts, and actionable recommendations — helping them make better decisions faster and reduce crop loss.
 
 ## Features
 
