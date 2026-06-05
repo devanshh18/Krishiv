@@ -16,7 +16,7 @@ Instead of checking dozens of sensor readings manually, farmers and agronomists 
 
 ## Features
 
-- **Health Score Prediction** — Scores greenhouse environment health (0–100) based on 10 sensor parameters
+- **Health Score Prediction** — Scores greenhouse environment health (0–100) based on 19 sensor parameters
 - **Disease Risk Assessment** — Predicts disease risk (0–100) by analyzing humidity, ventilation, leaf wetness, and other factors
 - **Irrigation Recommendation** — Classifies irrigation need as Low, Medium, or High based on soil conditions
 - **Live Dashboard** — Auto-refreshing dashboard with real-time sensor data, trend charts, and alerts
@@ -29,7 +29,7 @@ Instead of checking dozens of sensor readings manually, farmers and agronomists 
 |-------|-----------|
 | **ML Models** | scikit-learn (GradientBoosting) |
 | **Backend** | FastAPI, SQLAlchemy, PostgreSQL |
-| **Frontend** | React, Vite, Recharts |
+| **Frontend** | React, Vite, ApexCharts |
 | **Data** | pandas, NumPy |
 
 ## Project Structure
@@ -80,7 +80,7 @@ Instead of checking dozens of sensor readings manually, farmers and agronomists 
 ### Dataset
 - ~900 rows curated from multiple public greenhouse sensor datasets, agricultural research papers, and open IoT monitoring sources
 - Covers 6 crop types (Tomato, Cucumber, Capsicum, Lettuce, Chili, Herbs) with realistic Indian greenhouse conditions
-- 21 sensor features + 5 target labels
+- 19 raw sensor features + 5 target labels
 - Contains real-world noise, missing values (~5%), and seasonal weather variations
 
 ### Models
@@ -88,7 +88,7 @@ Instead of checking dozens of sensor readings manually, farmers and agronomists 
 | Model | Type | Target | Key Metrics |
 |-------|------|--------|-------------|
 | Health Score | GradientBoostingRegressor | 0–100 score | R² ≈ 0.79, MAE ≈ 3.5 |
-| Disease Risk | GradientBoostingRegressor | 0–100 score | R² ≈ 0.74, MAE ≈ 5.2 |
+| Disease Risk | GradientBoostingRegressor | 0–100 score | R² ≈ 0.74, MAE ≈ 3.5 |
 | Irrigation Need | GradientBoostingClassifier | Low/Medium/High | F1 ≈ 0.76, Acc ≈ 0.77 |
 
 ### Feature Engineering
@@ -98,6 +98,20 @@ Instead of checking dozens of sensor readings manually, farmers and agronomists 
 - Humidity-CO2 interaction
 
 ## Setup & Installation
+
+### Option A: Docker (Recommended)
+The easiest way to run the entire project with a single command:
+```bash
+git clone https://github.com/devanshh18/Krishiv.git
+cd Krishiv
+docker compose up --build
+```
+This starts the database, backend, and frontend automatically:
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:8000
+- **API Docs**: http://localhost:8000/docs
+
+### Option B: Manual Setup
 
 ### Prerequisites
 - Python 3.11+
