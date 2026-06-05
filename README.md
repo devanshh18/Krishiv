@@ -1,6 +1,6 @@
 # 🌿 Krishiv — Greenhouse Intelligence System
 
-![Krishiv Banner](logo.png)
+![Krishiv Banner](logo2.png)
 
 ## About the Project
 
